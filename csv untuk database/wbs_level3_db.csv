@@ -1,0 +1,44 @@
+﻿id;data_wbs_level2;data_wbs_level3
+1;Drainase;Drainase Penunjang Jembatan
+2;Drainase;Drainase Utama Jembatan
+3;Pelebaran Perkerasan dan Bahu Jalan;Bahu Jalan
+4;Pelebaran Perkerasan dan Bahu Jalan;Pelebaran Perkerasan
+5;Pengembalian Kondisi Pek. Minor;Pemeliharaan Rutin Jalan dan Jembatan
+6;Pengembalian Kondisi Pek. Minor;Pengembalian Kondisi Pek. Minor
+7;Perkerasan Aspal;Asphal Mixing Plant (AMP)
+8;Perkerasan Aspal;Non Asphal Mixing Plant (Non-AMP)
+9;Perkerasan Berbutir dan Perkerasan Beton Semen;Perkerasan Berbutir
+10;Perkerasan Berbutir dan Perkerasan Beton Semen;Perkerasan Beton Semen
+11;Persiapan;Kajian Teknis Lapangan
+12;Persiapan;Kantor Lapangan dan Fasilitasnya
+13;Persiapan;Keselamatan dan Kesehatan Kerja
+14;Persiapan;Manajemen dan Keselamatan Lalu Lintas
+15;Persiapan;Manajemen Mutu
+16;Persiapan;Mobilisasi dan Demobilisasi
+17;Persiapan;Pengamanan Lingkungan Hidup
+18;Persiapan;Pengujian Tanah
+19;Persiapan;Relokasi Eksisting Utilitas
+20;Struktur;Asesoris Jembatan
+21;Struktur;Struktur Atas Beton
+22;Struktur;Struktur Bawah
+23;Tanah;Galian
+24;Tanah;Land Clearing
+25;Tanah;Perbaikan Tanah
+26;Tanah;Timbunan
+27;Manajemen;Manajemen Integrasi
+28;Manajemen;Manajemen Stakeholder
+29;Manajemen;Manajemen Lingkup
+30;Manajemen;Manajemen Waktu
+31;Manajemen;Manajemen Biaya
+32;Manajemen;Manajemen Kualitas
+33;Manajemen;Manajemen Sumber Daya
+34;Manajemen;Manajemen Pengadaan
+35;Manajemen;Manajemen Resiko
+36;Manajemen;Manajemen Komunikasi
+37;Manajemen;Manajemen K3L
+38;Manajemen;Manajemen Keuangan
+39;Drainase;Drainase Pada Konstruksi Jembatan
+40;Drainase;Drainase Penunjng (Luar Konst. Jembatan)
+41;Fasilitas Pelayanan Tol;Kantor dan Fasilitas Tol
+42;Fasilitas Pelayanan Tol;Plaza Tol
+43;Struktur;Struktur Atas

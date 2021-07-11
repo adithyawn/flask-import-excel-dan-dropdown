@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Python Flask Dynamic Select Box using Flask-WTF, javascript and SQLAlchemy</title>
+    
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <form action="{{ url_for('submitexcel') }}" method="POST">
+        <input type="file" name="excelfile" value="">
+        <input type="submit" name="" value="Submit">
+    </form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        <p><h2>Import Excel to DB dan Dynamic Dropdown</h2></p>
+        <form method="POST" action="{{ url_for('submitwbs') }}">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <label for="email">Kategori WBS</label>
+                {{ form.select_kategori_wbs(class="form-control") }}
+            </div>
+            <div class="form-group">
+                <label for="email">WBS Spesifik</label>
+                {{ form.select_wbs_spesifik(class="form-control" )}}
+            </div>
+            <div class="form-group">
+                <label for="email">WBS Level 2</label>
+                {{ form.select_wbs_level2(class="form-control" )}} 
+            </div>
+            <div class="form-group">
+                <label for="email">WBS Level 3</label>
+                {{ form.select_wbs_level3(class="form-control" )}} 
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Kategori WBS</th>
+                        <th scope="col">WBS Spesifik</th>
+                        <th scope="col">WBS Level 2</th>
+                        <th scope="col">WBS Level 3</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in results %}    
+                        <tr>
+                            <td>{{i.WbsLevel3.id}}</td>
+                            <td>{{i.KategoriWbs.kategori_wbs}}</td>
+                            <td>{{i.WbsSpesifik.wbs_spesifik}}</td>
+                            <td>{{i.WbsLevel2.wbs_level2}}</td>
+                            <td>{{i.WbsLevel3.wbs_level3}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+            <input type="submit" class="btn btn-success" btn-lg>
+        </form> 
+        </div>
+    </div>
+</div>
+
+
+<script>
+    kategori_wbs_select = document.getElementById('select_kategori_wbs');
+    wbs_spesifik_select = document.getElementById('select_wbs_spesifik');
+    wbs_level2_select = document.getElementById('select_wbs_level2');
+    wbs_level3_select = document.getElementById('select_wbs_level3');
+    
+
+    // Ketika country di select maka di respon dengan json state narik data dari state
+    kategori_wbs_select.onchange = function(){
+        kategori_wbs = kategori_wbs_select.value;
+        fetch('/wbs_spesifik/' + kategori_wbs).then(function(response){
+            response.json().then(function(data) {
+                optionHTML = '<option value="-">' + '--' + '</option>'+'';
+                // statecountry dari >> jsonify({'statecountry' : stateArray})
+                // optionHTML untuk input nilainya ke html option
+                for (wbs_spesifik of data.wbs_spesifik_kategori_wbs) {
+                optionHTML += '<option value="' + wbs_spesifik.id +'">' + wbs_spesifik.name+ '</option>'
+                }
+            wbs_spesifik_select.innerHTML = optionHTML;
+            });
+        });
+    }
+    // DIAKALIN BIAR VALUE-NYA NAMA JADI '<option value="' + city_rs.name +'">' + city_rs.name + '</option>' DIBUAT .name semua
+    wbs_spesifik_select.onchange = function(){
+        wbs_spesifik = wbs_spesifik_select.value; 
+        fetch('/wbs_level2/' + wbs_spesifik).then(function(response){
+            response.json().then(function(data) {
+                optionHTML = '<option value="-">' + '--' + '</option>'+''
+                for (wbs_level2 of data.wbs_level2_wbs_spesifik) {
+                optionHTML += '<option value="' + wbs_level2.id +'">' + wbs_level2.name+ '</option>'
+                }
+            wbs_level2_select.innerHTML = optionHTML;
+            });
+        });
+    }
+
+    wbs_level2_select.onchange = function(){
+        wbs_level2 = wbs_level2_select.value; 
+        fetch('/wbs_level3/' + wbs_level2).then(function(response){
+            response.json().then(function(data) {
+                optionHTML = '<option value="-">' + '--' + '</option>'+''
+                for (wbs_level3 of data.wbs_level3_wbs_spesifik) {
+                optionHTML += '<option value="' + wbs_level3.id +'">' + wbs_level3.name + '</option>'
+                }
+                wbs_level3_select.innerHTML = optionHTML;
+            });
+        });
+    }
+
+
+</script>
+
+
+</body>
+</html>

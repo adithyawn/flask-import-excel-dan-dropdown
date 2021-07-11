@@ -1,0 +1,12 @@
+﻿id;data_kategori_lean
+1;Defect
+2;Waiting
+3;Over Production
+4;Transportation
+5;Inventory
+6;Motion
+7;Excess Processing
+8;Budget Over
+9;Asset Unutilized
+10;Human Resources Unutilized
+11;Knowledge Wasted
